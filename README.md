@@ -9,6 +9,11 @@ Este proyecto consiste en crear y consumir un web services para obtener datos de
 * Ajax
 ### Backend
 * Node.js
+* PostgreSQL
+### Paquetes de Node.js
+* express
+* pg
+
 ## Desarrollo del backend (web services)
 
 * Paso 1
@@ -31,8 +36,19 @@ Abre la carpeta creada con cualquier editor de código, para este caso con Visua
 Crea un archivo javascript llamado **index.js**
 
 * Paso 6
-Instala el paquete express para poder implementar un servidor y manejar rutas de manera fácil.
+Instala el paquete [express](https://www.npmjs.com/package/express) para poder implementar un servidor y manejar rutas de manera fácil.
 ```bash
 $ npm install express
 ```
+
+* Paso 7
+Instala el paquete [pg](https://www.npmjs.com/package/pg) para poder realizar las conexiones a la base de datos de PostgreSQL
+```bash
+$ npm install pg
+```
+
+* Paso 8
+Crea la base de datos en el motor de PostgreSQL con el nombre de **juegos_olimpicos**
+
+
 ## Desarrollo del frontend (consumo del ws)
