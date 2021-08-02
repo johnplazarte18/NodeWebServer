@@ -10,20 +10,18 @@ const pool = new Pool({
     port: process.env.DB_PORT,
 });
 
-const getUsers = async (req, res) => {
+const getPaises= async (req,res)=>{
     //Tiene su tiempo-await y async asincrono
-    const respuesta = await pool.query("SELECT * FROM deportes");
+    const respuesta= await pool.query('SELECT id, pais, iso3 FROM public.paises');
     res.status(200).json(respuesta.rows);
-};
+}
 
-const getUsersId = async (req, res) => {
-    const respuesta = await pool.query("SELECT * FROM deportes WHERE id=$1", [
-        req.params.id,
-    ]);
+const getUsersId = async (req,res)=>{
+    const respuesta= await pool.query('SELECT * FROM deportes WHERE id=$1',[req.params.id]);
     res.status(200).json(respuesta.rows);
-};
+}
 
-module.exports = {
+module.exports={
     getUsersId,
-    getUsers,
-};
+    getPaises
+}
