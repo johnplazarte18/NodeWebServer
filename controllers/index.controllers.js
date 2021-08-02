@@ -15,7 +15,10 @@ const getPaises= async (req,res)=>{
     const respuesta= await pool.query('SELECT id, pais, iso3 FROM public.paises');
     res.status(200).json(respuesta.rows);
 }
-
+const getMedallas= async (req,res)=>{
+    const respuesta= await pool.query('SELECT * FROM public.medallas');
+    res.status(200).json(respuesta.rows);
+}
 const getUsersId = async (req,res)=>{
     const respuesta= await pool.query('SELECT * FROM deportes WHERE id=$1',[req.params.id]);
     res.status(200).json(respuesta.rows);
@@ -23,5 +26,6 @@ const getUsersId = async (req,res)=>{
 
 module.exports={
     getUsersId,
-    getPaises
+    getPaises,
+    getMedallas
 }
