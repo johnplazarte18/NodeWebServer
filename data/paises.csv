@@ -1,6 +1,6 @@
-﻿1;Ecuador;ECU
-2;Brazil;BRA
-3;Venezuela;VEN
-4;Colombia;COL
-5;Cuba;CUB
-6;México;MEX
+﻿1;Ecuador;ECU;src\public\img\paises\ECU.PNG
+2;Brazil;BRA;src\public\img\paises\BRA.PNG
+3;Venezuela;VEN;src\public\img\paises\VEN.PNG
+4;Colombia;COL;src\public\img\paises\COL.PNG
+5;Cuba;CUB;src\public\img\paises\CUB.PNG
+6;México;MEX;src\public\img\paises\MEX.PNG
