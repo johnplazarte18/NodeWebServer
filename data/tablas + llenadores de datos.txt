@@ -48,11 +48,13 @@ ALTER TABLE public.medallas
 
 
 
+
 CREATE TABLE public.paises
 (
     id character varying COLLATE pg_catalog."default" NOT NULL,
     pais character varying(25) COLLATE pg_catalog."default",
     iso3 character varying(3) COLLATE pg_catalog."default",
+    ruta_foto character varying(100) COLLATE pg_catalog."default",
     CONSTRAINT paises_pkey PRIMARY KEY (id)
 )
 
@@ -60,7 +62,6 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.paises
     OWNER to postgres;
-
 
 
 
@@ -102,7 +103,7 @@ ALTER TABLE public.victorias
 copy public.eventos (id, evento) 
 FROM 'C:/eventos.csv' DELIMITER ';' csv ENCODING 'utf-8';
 
-copy public.paises (id, pais, iso3) 
+copy public.paises (id, pais, iso3, ruta_foto) 
 FROM 'C:/paises.csv' DELIMITER ';' csv ENCODING 'utf-8';
 
 copy public.participantes (id, participante, sexo) 
