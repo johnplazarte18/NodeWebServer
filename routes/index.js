@@ -8,11 +8,20 @@ router.get('/', function(req, res, next) {
 const {
   getPaises,
   getUsersId,
-  getMedallas
+  getMedallas,
+  getTriunfoMedalla,
+  getTriunfoPais
 }=require('../controllers/index.controllers');
 
+// obtener todos los paises
 router.get('/paises',getPaises);
+// obtener las medallas
 router.get('/medallas',getMedallas);
-router.get('/users/:id',getUsersId);//id,pasar parametros
+// pasar el id del usuario
+router.get('/users/:id',getUsersId);
+// pasar el uso3 de un país
+router.get('/triunfo-pais/:iso3',getTriunfoPais);
+// pasar el nombre de una medalla
+router.get('/triunfo-medalla/:medalla',getTriunfoMedalla);
 
 module.exports = router;
