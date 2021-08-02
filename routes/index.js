@@ -5,5 +5,9 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+const {getUsers, getUsersId}=require('../controllers/index.controllers');
+
+router.get('/users',getUsers);
+router.get('/users/:id',getUsersId);//id,pasar parametros
 
 module.exports = router;
