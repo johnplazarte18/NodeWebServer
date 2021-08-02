@@ -48,7 +48,9 @@ $ npm install pg
 ```
 
 * Paso 8
-Crea la base de datos en el motor de PostgreSQL con el nombre de **juegos_olimpicos**
+Abre el motor de PostgreSQL y crea la base de datos con el nombre de **juegos_olimpicos**
 
+* Paso 9
+Diríjase a la carpeta data de este repositorio y encontrará varios archivos csv y un txt que detalla la creación de las tablas y la inserción de los datos. Ubique todos los archivos csv en la raíz de su equipo "C:\", y siga los pasos del archivo txt.
 
 ## Desarrollo del frontend (consumo del ws)
