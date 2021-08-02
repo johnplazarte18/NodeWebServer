@@ -103,7 +103,7 @@ copy public.eventos (id, evento)
 FROM 'C:/eventos.csv' DELIMITER ';' csv ENCODING 'utf-8';
 
 copy public.paises (id, pais, iso3) 
-FROM 'C:/países.csv' DELIMITER ';' csv ENCODING 'utf-8';
+FROM 'C:/paises.csv' DELIMITER ';' csv ENCODING 'utf-8';
 
 copy public.participantes (id, participante, sexo) 
 FROM 'C:/participantes.csv' DELIMITER ';' csv ENCODING 'utf-8';
