@@ -28,6 +28,7 @@
 .container .select-sport {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 10px 0;
 }
 
@@ -38,6 +39,7 @@
 
 .container .select-sport #country {
   width: 300px;
+  height: 35px;
 }
 
 img {

@@ -1,17 +1,17 @@
-const selectCountry = document.querySelector('#country');
-const selectMedallas = document.querySelector('#medal');
+const selectCountry = document.querySelector("#country");
+const selectMedallas = document.querySelector("#medal");
 
 $.ajax({
     type: "GET",
     contentType: "application/json; charset=utf-8",
-    url: "http://localhost:3000/paises",
+    url: "http://localhost:4000/paises",
     dataType: "json",
     success: function (data) {
         data.forEach((element) => {
-            option = document.createElement('option');
-            option.value = element.iso3
-            option.text = element.pais
-            selectCountry.appendChild(option)
+            option = document.createElement("option");
+            option.value = element.iso3;
+            option.text = element.pais;
+            selectCountry.appendChild(option);
         });
     },
     error: function (data) {
@@ -19,18 +19,17 @@ $.ajax({
     },
 });
 
-
 $.ajax({
     type: "GET",
     contentType: "application/json; charset=utf-8",
-    url: "http://localhost:3000/medallas",
+    url: "http://localhost:4000/medallas",
     dataType: "json",
     success: function (data) {
         data.forEach((element) => {
-            option = document.createElement('option');
-            option.value = element.medalla
-            option.text = element.medalla
-            selectMedallas.appendChild(option)
+            option = document.createElement("option");
+            option.value = element.medalla;
+            option.text = element.medalla;
+            selectMedallas.appendChild(option);
         });
     },
     error: function (data) {
@@ -38,33 +37,41 @@ $.ajax({
     },
 });
 
-selectCountry.addEventListener('change', (event) => {
+selectCountry.addEventListener("change", (event) => {
+    document.getElementById("img_pais").src =
+        "/img/paises/" + selectCountry.value + ".png";
+
     $.ajax({
         type: "GET",
         contentType: "application/json; charset=utf-8",
-        url: "http://localhost:3000/triunfo-pais/"+event.target.value,
+        url: "http://localhost:4000/triunfo-pais/" + event.target.value,
         dataType: "json",
         success: function (data) {
-            $('.card').empty()
+            $(".card").empty();
             data.forEach((element) => {
-                img = ''
-                if(element.sexo == 'Femenino'){
-                    img = '<img src="/img/people/Masculino.png" alt="">'
-                }else{
-                    img = '<img src="/img/people/Femenino.png" alt="">'
+                if (element.sexo == "Femenino") {
+                    img = '<img src="/img/people/Masculino.png" alt="">';
+                } else {
+                    img = '<img src="/img/people/Femenino.png" alt="">';
                 }
-                card = '<div class="card-people">'+
-                '<div class="img-people">'+
-                    img+
-                '</div>'+
-                '<div class="content">'+
-                  '<p><strong>Nombre:</strong>'+element.participante+'</p>'+
-                  '<p><strong>Deporte:</strong>'+element.deporte+'</p>'+
-                  '<p><strong>Competición:</strong>'+element.competicion+'</p>'+
-                '</div>'+
-              '</div>';
+                card =
+                    '<div class="card-people">' +
+                    '<div class="img-people">' +
+                    img +
+                    "</div>" +
+                    '<div class="content">' +
+                    "<p><strong>Nombre:</strong>" +
+                    element.participante +
+                    "</p>" +
+                    "<p><strong>Deporte:</strong>" +
+                    element.deporte +
+                    "</p>" +
+                    "<p><strong>Competición:</strong>" +
+                    element.competicion +
+                    "</p>" +
+                    "</div>" +
+                    "</div>";
                 $(".card").prepend(card);
-                //$("#img_pais").attr("src", element.ruta_foto);
             });
         },
         error: function (data) {
@@ -73,31 +80,40 @@ selectCountry.addEventListener('change', (event) => {
     });
 });
 
-selectMedallas.addEventListener('change', (event) => {
+selectMedallas.addEventListener("change", (event) => {
+    document.getElementById("img_medal").src =
+        "/img/medals/" + selectMedallas.value + ".png";
     $.ajax({
         type: "GET",
         contentType: "application/json; charset=utf-8",
-        url: "http://localhost:3000/triunfo-medalla/"+event.target.value,
+        url: "http://localhost:4000/triunfo-medalla/" + event.target.value,
         dataType: "json",
         success: function (data) {
-            $('.card').empty()
+            $(".card").empty();
             data.forEach((element) => {
-                img = ''
-                if(element.sexo == 'Femenino'){
-                    img = '<img src="/img/people/Masculino.png" alt="">'
-                }else{
-                    img = '<img src="/img/people/Femenino.png" alt="">'
+                img = "";
+                if (element.sexo == "Femenino") {
+                    img = '<img src="/img/people/Masculino.png" alt="">';
+                } else {
+                    img = '<img src="/img/people/Femenino.png" alt="">';
                 }
-                card = '<div class="card-people">'+
-                '<div class="img-people">'+
-                    img+
-                '</div>'+
-                '<div class="content">'+
-                  '<p><strong>Nombre:</strong>'+element.participante+'</p>'+
-                  '<p><strong>Deporte:</strong>'+element.deporte+'</p>'+
-                  '<p><strong>Competición:</strong>'+element.competicion+'</p>'+
-                '</div>'+
-              '</div>';
+                card =
+                    '<div class="card-people">' +
+                    '<div class="img-people">' +
+                    img +
+                    "</div>" +
+                    '<div class="content">' +
+                    "<p><strong>Nombre:</strong>" +
+                    element.participante +
+                    "</p>" +
+                    "<p><strong>Deporte:</strong>" +
+                    element.deporte +
+                    "</p>" +
+                    "<p><strong>Competición:</strong>" +
+                    element.competicion +
+                    "</p>" +
+                    "</div>" +
+                    "</div>";
                 $(".card").prepend(card);
                 //$("#img_medal").attr("src", element.ruta_foto);
             });
