@@ -48,11 +48,3 @@ img {
 .container .card .card-people .img-people {
   width: 150px;
 }
-
-@media (max-height: 450px) {
-  .container .card {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-height:)
