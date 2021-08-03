@@ -1,34 +1,58 @@
 .container {
-    padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 .container .select-sport {
-    display: flex;
-    justify-content: center;
-    margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
 }
 
-.container .select-sport .img {
-    width: 60px;
-    margin-right: 10px;
+.container .select-sport .img-country {
+  width: 60px;
+  margin-right: 10px;
 }
 
 .container .select-sport #country {
-    width: 300px;
+  width: 300px;
 }
 
 img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .container .select-medals {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .select-medals .img-medal {
+  width: 50px;
+  margin-right: 10px;
 }
 
 .container .select-medals #medal {
-    width: 300px;
-    height: 35px;
+  width: 300px;
+  height: 35px;
 }
+
+.container .card {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.container .card .card-people .img-people {
+  width: 150px;
+}
+
+@media (max-height: 450px) {
+  .container .card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-height:)
