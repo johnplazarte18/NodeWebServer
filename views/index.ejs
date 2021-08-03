@@ -4,6 +4,8 @@
 <head>
   <title><%= title %></title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -11,24 +13,24 @@
 
   </div>
   <div class="container">
-    <div class="img">
-      <img src="/public/img/paises/ECU.png" alt="">
-    </div>
     <div class="select-sport">
+      <div class="img">
+        <img src="/img/paises/ECU.png" alt="">
+      </div>
       <select name="country" id="country">
-        <option disabled>Seleccione un país</option>
+        <option disabled selected>Seleccione un país</option>
         <option value="ECU">Ecuador</option>
       </select>
     </div>
     <div class="select-medals">
       <select name="medal" id="medal">
-        <option disabled>Seleccione la medalla que ha ganado el país</option>
+        <option disabled selected>Seleccione la medalla que ha ganado el país</option>
         <option value="oro">Oro</option>
       </select>
     </div>
     <div class="card-people">
       <div class="img-people">
-        <img src="/public/img/paises/ECU.png" alt="">
+        <img src="/img/paises/ECU.png" alt="">
       </div>
       <div class="content">
         <p><strong>Nombre:</strong>Henry Pérez</p>
@@ -37,6 +39,8 @@
       </div>
     </div>
   </div>
+
+  <script src="js/code.js"></script>
 </body>
 
 </html>

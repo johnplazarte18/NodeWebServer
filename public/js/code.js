@@ -1,4 +1,5 @@
 var lblPaises = [];
+console.log("Ejecutar");
 $.ajax({
     type: "GET",
     contentType: "application/json; charset=utf-8",
@@ -9,9 +10,8 @@ $.ajax({
             lblPaises.push(element.paises);
 
             //mostrar paises
-            $("#lista-paises").append('');
+            $("#lista-paises").append("");
         });
-        
     },
     error: function (data) {
         alert("Ocurrió un error al intentar obtener los países");
