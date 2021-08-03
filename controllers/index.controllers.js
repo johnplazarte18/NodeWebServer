@@ -35,12 +35,12 @@ const getTriunfoMedalla = async (req,res)=>{
     inner join public."paises" on public."paises"."id" = public."victorias"."id_pais"
     inner join public."participantes" on public."participantes"."id" = public."victorias"."id_participante"
     
-    WHERE public."medallas"."medalla" = '$1'
+    WHERE public."medallas"."medalla" = $1
     
     group by public."victorias"."id", public."victorias"."id_deporte", public."victorias"."id_evento",
     public."victorias"."id_medalla", public."victorias"."id_pais", public."victorias"."id_participante",
     public."deportes"."deporte", public."medallas"."medalla", public."paises"."pais", public."participantes"."participante",
-    public."victorias"."competicion";` ,[req.params.id]);
+    public."victorias"."competicion";` ,[req.params.medalla]);
     res.status(200).json(respuesta.rows);
 }
 
@@ -55,12 +55,12 @@ const getTriunfoPais = async (req,res)=>{
     inner join public."paises" on public."paises"."id" = public."victorias"."id_pais"
     inner join public."participantes" on public."participantes"."id" = public."victorias"."id_participante"
     
-    WHERE public."paises"."iso3" = '$1'
+    WHERE public."paises"."iso3" = $1
     
     group by public."victorias"."id", public."victorias"."id_deporte", public."victorias"."id_evento",
     public."victorias"."id_medalla", public."victorias"."id_pais", public."victorias"."id_participante",
     public."deportes"."deporte", public."medallas"."medalla", public."paises"."pais", public."participantes"."participante",
-    public."victorias"."competicion";` ,[req.params.id]);
+    public."victorias"."competicion";` ,[req.params.iso3]);
     res.status(200).json(respuesta.rows);
 }
 
