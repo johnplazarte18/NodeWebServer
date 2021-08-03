@@ -27,8 +27,8 @@ const getUsersId = async (req,res)=>{
 const getTriunfoMedalla = async (req,res)=>{
     const respuesta= await pool.query(`SELECT public."victorias"."id", public."victorias"."id_deporte", public."victorias"."id_evento",
     public."victorias"."id_medalla", public."victorias"."id_pais", public."victorias"."id_participante",
-    public."deportes"."deporte", public."medallas"."medalla", public."paises"."pais", 
-    public."participantes"."participante", public."victorias"."competicion"
+    public."deportes"."deporte", public."medallas"."medalla", public."paises"."pais", public."paises"."ruta_foto", 
+    public."participantes"."participante", public."participantes"."sexo", public."victorias"."competicion"
     
     FROM public.victorias inner join public."deportes" on public."deportes"."id" = public."victorias"."id_deporte"
     inner join public."medallas" on public."medallas"."id" = public."victorias"."id_medalla"
@@ -39,16 +39,16 @@ const getTriunfoMedalla = async (req,res)=>{
     
     group by public."victorias"."id", public."victorias"."id_deporte", public."victorias"."id_evento",
     public."victorias"."id_medalla", public."victorias"."id_pais", public."victorias"."id_participante",
-    public."deportes"."deporte", public."medallas"."medalla", public."paises"."pais", public."participantes"."participante",
-    public."victorias"."competicion";` ,[req.params.medalla]);
+    public."deportes"."deporte", public."medallas"."medalla", public."paises"."pais", public."paises"."ruta_foto", public."participantes"."participante",
+    public."participantes"."sexo", public."victorias"."competicion";` ,[req.params.medalla]);
     res.status(200).json(respuesta.rows);
 }
 
 const getTriunfoPais = async (req,res)=>{
     const respuesta= await pool.query(`SELECT public."victorias"."id", public."victorias"."id_deporte", public."victorias"."id_evento",
     public."victorias"."id_medalla", public."victorias"."id_pais", public."victorias"."id_participante",
-    public."deportes"."deporte", public."medallas"."medalla", public."paises"."pais", 
-    public."participantes"."participante", public."victorias"."competicion"
+    public."deportes"."deporte", public."medallas"."medalla", public."paises"."pais", public."paises"."ruta_foto",
+    public."participantes"."participante",public."participantes"."sexo", public."victorias"."competicion"
     
     FROM public.victorias inner join public."deportes" on public."deportes"."id" = public."victorias"."id_deporte"
     inner join public."medallas" on public."medallas"."id" = public."victorias"."id_medalla"
@@ -59,8 +59,8 @@ const getTriunfoPais = async (req,res)=>{
     
     group by public."victorias"."id", public."victorias"."id_deporte", public."victorias"."id_evento",
     public."victorias"."id_medalla", public."victorias"."id_pais", public."victorias"."id_participante",
-    public."deportes"."deporte", public."medallas"."medalla", public."paises"."pais", public."participantes"."participante",
-    public."victorias"."competicion";` ,[req.params.iso3]);
+    public."deportes"."deporte", public."medallas"."medalla", public."paises"."pais", public."paises"."ruta_foto", public."participantes"."participante",
+    public."participantes"."sexo", public."victorias"."competicion";` ,[req.params.iso3]);
     res.status(200).json(respuesta.rows);
 }
 

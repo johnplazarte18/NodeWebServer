@@ -38,7 +38,72 @@ $.ajax({
     },
 });
 
-/*selectElement.addEventListener('change', (event) => {
-    const resultado = document.querySelector('.resultado');
-    resultado.textContent = `Te gusta el sabor ${event.target.value}`;
-});*/
+selectCountry.addEventListener('change', (event) => {
+    $.ajax({
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        url: "http://localhost:3000/triunfo-pais/"+event.target.value,
+        dataType: "json",
+        success: function (data) {
+            $('.card').empty()
+            data.forEach((element) => {
+                img = ''
+                if(element.sexo == 'Femenino'){
+                    img = '<img src="/img/people/Masculino.png" alt="">'
+                }else{
+                    img = '<img src="/img/people/Femenino.png" alt="">'
+                }
+                card = '<div class="card-people">'+
+                '<div class="img-people">'+
+                    img+
+                '</div>'+
+                '<div class="content">'+
+                  '<p><strong>Nombre:</strong>'+element.participante+'</p>'+
+                  '<p><strong>Deporte:</strong>'+element.deporte+'</p>'+
+                  '<p><strong>Competición:</strong>'+element.competicion+'</p>'+
+                '</div>'+
+              '</div>';
+                $(".card").prepend(card);
+                //$("#img_pais").attr("src", element.ruta_foto);
+            });
+        },
+        error: function (data) {
+            alert("Ocurrió un error al intentar obtener los datos");
+        },
+    });
+});
+
+selectMedallas.addEventListener('change', (event) => {
+    $.ajax({
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        url: "http://localhost:3000/triunfo-medalla/"+event.target.value,
+        dataType: "json",
+        success: function (data) {
+            $('.card').empty()
+            data.forEach((element) => {
+                img = ''
+                if(element.sexo == 'Femenino'){
+                    img = '<img src="/img/people/Masculino.png" alt="">'
+                }else{
+                    img = '<img src="/img/people/Femenino.png" alt="">'
+                }
+                card = '<div class="card-people">'+
+                '<div class="img-people">'+
+                    img+
+                '</div>'+
+                '<div class="content">'+
+                  '<p><strong>Nombre:</strong>'+element.participante+'</p>'+
+                  '<p><strong>Deporte:</strong>'+element.deporte+'</p>'+
+                  '<p><strong>Competición:</strong>'+element.competicion+'</p>'+
+                '</div>'+
+              '</div>';
+                $(".card").prepend(card);
+                //$("#img_medal").attr("src", element.ruta_foto);
+            });
+        },
+        error: function (data) {
+            alert("Ocurrió un error al intentar obtener los datos");
+        },
+    });
+});
